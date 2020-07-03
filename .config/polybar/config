@@ -1,0 +1,69 @@
+[bar/main]
+monitor =
+width = 100%
+height = 24
+bottom = false
+fixed-center = true
+foreground = #f1ebeb
+background = #889E1C4E
+font-0 = FantasqueSansMono:size=12;2
+font-1 = FantasqueSansMono Nerd Font Mono:size=24;5
+modules-left = symbol workspaces
+modules-center = title
+modules-right = devil login date
+seperator = |
+border-size = 0
+padding-right = 0
+
+[module/symbol]
+type = custom/text
+content-background = #fa2772
+content = 
+content-padding = 1
+
+[module/workspaces]
+type = internal/xworkspaces
+pin-workspaces = false
+enable-click = true
+label-empty-background = #bd2052
+label-empty-foreground = #acada1
+label-active-background = #bd2052
+label-active-foreground = #f1ebeb
+label-active-padding-right = 1
+label-empty-padding-right = 1
+label-urgent-padding-right = 1
+label-occupied-padding-right = 1
+
+[module/spacer]
+type = custom/text
+content-background = #BD2052
+content-padding = 2
+content = " "
+
+[module/title]
+type = internal/xwindow
+label = %title%
+label-maxlen = 50 
+
+[module/devil]
+type = custom/text
+content-background = #BD2054
+content =  
+content-padding = 1
+
+[module/date]
+type = internal/date
+interval = 30
+label-background = #fa2772
+label-padding = 1
+label = %date% at %time%
+date = %A, %B %d
+time = %H:%M %p
+
+[module/login]
+type = custom/script
+interval = 256
+format = <label>
+format-background = #dc2566
+format-padding = 1
+exec = ~/user_host.sh
