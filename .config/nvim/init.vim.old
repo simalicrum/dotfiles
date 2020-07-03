@@ -1,0 +1,21 @@
+call plug#begin("~/.vim/plugged")
+  Plug 'scrooloose/nerdtree'
+  Plug 'ryanoasis/vim-devicons' 
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'tomasr/molokai'
+  Plug 'fmoralesc/molokayo'
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+call plug#end()
+"let g:NERDTreeShowHidden = 1
+"let g:NERDTreeMinimalUI = 1
+"let g:NERDTreeIgnore = []
+"let g:NERDTreeStatusline = ''
+" Automaticaly close nvim if NERDTree is only thing left open
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Toggle
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+set number
+colorscheme molokayo
+set tabstop=2
+set softtabstop=0 noexpandtab
+set shiftwidth=2
