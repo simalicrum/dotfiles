@@ -1,54 +1,59 @@
+#include "/home/coleco/colorthemes/monokai"
+!#include "/home/coleco/colorthemes/paraiso"
+!#include "/home/coleco/colorthemes/pastebula"
+!#include "/home/coleco/colorthemes/naturesuede"
+
 ! special
-*.foreground:   #f1ebeb
-*.background:   #272822
-*.cursorColor:  #f1ebeb
+*.foreground:   fg
+*.background:   bg
+*.cursorColor:  cc
 
 ! black
-*.color0:       #48483e
-*.color8:       #76715e
+*.color0:       c00
+*.color8:       c08
 
 ! red
-*.color1:       #dc2566
-*.color9:       #fa2772
+*.color1:       c01
+*.color9:       c09
 
 ! green
-*.color2:       #8fc029
-*.color10:      #a7e22e
+*.color2:       c02
+*.color10:      c10
 
 ! yellow
-*.color3:       #d4c96e
-*.color11:      #e7db75
+*.color3:       c03
+*.color11:      c11
 
 ! blue
-*.color4:       #55bcce
-*.color12:      #66d9ee
+*.color4:       c04
+*.color12:      c12
 
 ! magenta
-*.color5:       #9358fe
-*.color13:      #ae82ff
+*.color5:       c05
+*.color13:      c13
 
 ! cyan
-*.color6:       #56b7a5
-*.color14:      #66efd5
+*.color6:       c06
+*.color14:      c14
 
 ! white
-*.color7:       #acada1
-*.color15:      #cfd0c2
+*.color7:       c07
+*.color15:      c15
 
 
 ! Rofi
-rofi.theme: Monokai
-rofi.font: Fantasque Sans Mono 12
-!rofi.padding: 0
-!rofi.line-padding: 0
-!rofi.color-enabled: true
-!rofi.hide-scrollbar: true
-!rofi.separator-style: solid
-!rofi.color-window: #272822, #56b7a5, #272822
-!rofi.color-normal: #272822, #56b7a5, #272822, #a4a4a4, #1c2023
+rofi.font: Fantasque Sans Mono 11
+rofi.padding: 5
+rofi.color-enabled: true
+rofi.hide-scrollbar: true
+rofi.separator-style: solid
+rofi.color-window: bg, c07, c00 
+rofi.color-normal: bg, c10, bg, fg, bg
 !rofi.color-urgent: argb:00000000, #f43753, argb:00000000, argb:00000000, #e29a49
 !rofi.color-active: argb:00000000, #49bbfb, argb:00000000, argb:00000000, #e29a49
 rofi.kb-cancel: Escape,Alt+F1
+rofi.bw: 2
+rofi.line-padding: 1
 
 ! xterm
 xterm*termName: xterm-256color
@@ -65,7 +70,7 @@ URxvt*saveline: 15000
 URxvt*termName: rxvt-256color
 URxvt*iso14755: false
 URxvt*depth: 32
-URxvt*background: [95]#272822
+URxvt*background: [95]bg
 URxvt*scrollBar: false
 URxvt*scrollBar_right: false
 URxvt*internalBorder: 5

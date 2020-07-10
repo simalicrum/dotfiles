@@ -4,3 +4,4 @@ if status is-login
         exec startx -- -keeptty
     end
 end
+set -g theme_nerd_fonts yes

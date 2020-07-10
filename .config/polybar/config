@@ -1,16 +1,15 @@
 [bar/main]
 monitor =
 width = 100%
-height = 24
+height = 18
 bottom = false
 fixed-center = true
-foreground = #f1ebeb
-background = #889E1C4E
-font-0 = FantasqueSansMono:size=12;2
-font-1 = FantasqueSansMono Nerd Font Mono:size=24;5
-font-2 = FantasqueSansMono Nerd Font Mono:size=16;4
-modules-left = symbol workspaces
-modules-center = title
+foreground = ${xrdb:*.foreground:FFFFFF}
+background = ${xrdb:*.background:000000}
+font-0 = FantasqueSansMono Nerd Font Mono:size=12;2
+font-1 = FantasqueSansMono Nerd Font Mono:size=22;5
+modules-left =  i3
+modules-center = symbol title
 modules-right = devil login date
 seperator = |
 border-size = 0
@@ -18,40 +17,145 @@ padding-right = 0
 
 [module/symbol]
 type = custom/text
-content-background = #fa2772
+content-font = 2
+content-background = ${xrdb:*.background:#000000}
 content = 
 content-padding = 1
 
-[module/workspaces]
-type = internal/xworkspaces
+[module/i3]
+type = internal/i3
+label-focused-font = 1
+label-unfocused-font = 1
+label-urgent-font = 1
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
 pin-workspaces = false
-enable-click = true
 
-label-active-font = 3
-label-occupied-font = 3
-label-urgent-font = 3
-label-empty-font = 3
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = false
 
-label-empty-background = #bd2052
-label-empty-foreground = #acada1
-label-active-background = #bd2052
-label-active-foreground = #f1ebeb
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
 
-label-active = 
-label-occupied = 
-label-urgent = 
-label-empty = 
+; Create click handler used to focus workspace
+; Default: true
+enable-click = false
 
-label-active-padding = 1
-label-empty-padding = 1
-label-urgent-padding = 1
-label-occupied-padding = 1
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = false
 
-[module/spacer]
-type = custom/text
-content-background = #BD2052
-content-padding = 2
-content = " "
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+;label-empty-background = ${xrdb:*.color0:#000000}
+;label-empty-foreground = ${xrdb:*.foreground:#000000}
+;label-active-background = ${xrdb:*.color0:#000000}
+;label-active-foreground = ${xrdb:*.foreground:#000000}
+
+;label-active = O
+;label-occupied = o
+;label-urgent = o
+;label-empty = o
+
+;label-active-padding = 1
+;label-empty-padding = 1
+;label-urgent-padding = 1
+;label-occupied-padding = 1
+
+; ws-icon-[0-9]+ = <label>;<icon>
+; NOTE: The <label> needs to match the name of the i3 workspace
+; Neither <label> nor <icon> can contain a semicolon (;)
+ws-icon-0 = 1:msg;
+ws-icon-1 = 2:www;
+ws-icon-2 = 3:term;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-default = 
+; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
+; you must also define a ws-icon-5.
+; NOTE: Icon will be available as the %icon% token inside label-*
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2 
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %name%
+label-focused-foreground = ${xrdb:*.foreground:#000000}
+label-focused-background = ${xrdb:*.color7:#000000}
+label-focused-underline = #fba922
+label-focused-padding = 2 
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %name%
+label-unfocused-padding = 2 
+label-unfocused-background = ${xrdb:*.color0:#000000}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %name%
+label-visible-underline = #FF0000
+label-visible-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %name%
+label-urgent-foreground = ${xrdb:*.foreground:#000000}
+label-urgent-background = ${xrdb:*.color6:#000000}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+;label-separator = |
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
 
 [module/title]
 type = internal/xwindow
@@ -60,14 +164,16 @@ label-maxlen = 50
 
 [module/devil]
 type = custom/text
-content-background = #BD2054
+content-font = 2
+content-background = ${xrdb:*.color0:111111}
 content =  
 content-padding = 1
 
 [module/date]
 type = internal/date
 interval = 30
-label-background = #fa2772
+label-background = ${xrdb:*.color9:#00000}
+label-foreground = ${xrdb:*.foreground:#000000}
 label-padding = 1
 label = %date% at %time%
 date = %A, %B %d
@@ -77,6 +183,7 @@ time = %H:%M %p
 type = custom/script
 interval = 256
 format = <label>
-format-background = #dc2566
+format-background = ${xrdb:*.color1:#000000}
+#format-foreground = ${xrdb:*.bg:#FFFFFF}
 format-padding = 1
 exec = ~/user_host.sh

@@ -1,11 +1,14 @@
 call plug#begin("~/.vim/plugged")
   Plug 'scrooloose/nerdtree'
-  Plug 'ryanoasis/vim-devicons' 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tomasr/molokai'
   Plug 'fmoralesc/molokayo'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'ryanoasis/vim-devicons' 
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
 call plug#end()
+source ~/.nvimrc  
 "let g:NERDTreeShowHidden = 1
 "let g:NERDTreeMinimalUI = 1
 "let g:NERDTreeIgnore = []
@@ -169,3 +172,5 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
