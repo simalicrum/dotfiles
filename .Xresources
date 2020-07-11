@@ -70,7 +70,7 @@ URxvt*saveline: 15000
 URxvt*termName: rxvt-256color
 URxvt*iso14755: false
 URxvt*depth: 32
-URxvt*background: [95]bg
+URxvt*background: [90]bg
 URxvt*scrollBar: false
 URxvt*scrollBar_right: false
 URxvt*internalBorder: 5

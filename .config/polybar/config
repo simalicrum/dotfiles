@@ -6,8 +6,8 @@ bottom = false
 fixed-center = true
 foreground = ${xrdb:*.foreground:FFFFFF}
 background = ${xrdb:*.background:000000}
-font-0 = FantasqueSansMono Nerd Font Mono:size=12;2
-font-1 = FantasqueSansMono Nerd Font Mono:size=22;5
+font-0 = FantasqueSansMono Nerd Font Mono:size=12;3
+font-1 = FantasqueSansMono Nerd Font Mono:size=22;6
 modules-left =  i3
 modules-center = symbol title
 modules-right = devil login date
